@@ -1,0 +1,98 @@
+.card{
+    height: 230px;
+    width: 330px;
+    margin: 30px;
+    border-radius: 10px;
+    
+}
+.cardImg {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 12px;
+   
+
+}
+.cardImg img{
+    margin-top: 10px;
+    height: 80%;
+    width: 100%;
+}
+
+.formCard{
+    width: 100%;
+    height: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+
+
+}
+.formCard input{
+    width: 70%;
+    height: 30%;
+    outline: none;
+    text-decoration: none;
+    border: none;
+    text-align: center;
+}
+.formCard button{
+    width: auto;
+    height: 30%;
+  border-radius: 10px;
+  margin: 5px;
+  background-color: transparent;
+  outline: none;
+  text-decoration: none;
+  border-width: 1px;
+}
+
+.cardUsing{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+   height: 100%;
+
+   
+}
+.cardUsing .cardHeader{
+    height: 80%;
+    width: 100%;
+    font-size: 13px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.cardUsing button{
+    width: 100%;
+    height: 20%;
+    border-radius: 0px 0px 10px 10px;
+    border: none;
+    outline: none;
+}
+.chart{
+    border-radius: 50%;
+   
+    height: 80px;
+    width: 80px;
+    margin-right: 10px;
+    margin-left: 10px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border:10px solid #ff010170;
+   font-size: 10px;
+   
+}
+.cardHeader .describe{
+    text-align: left;
+    width: 70%;
+    overflow-x: hidden;
+}

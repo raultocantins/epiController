@@ -1,0 +1,46 @@
+.App{
+
+height: 100vh;
+margin: 0px;
+padding: 0px;
+}
+header{
+width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.171);
+    position: fixed;
+background-color: #fff;
+
+}
+header nav{
+    width: 80%;
+    height: 100%;
+ 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav button{
+height: 100%;
+width: 300px;
+border:none;
+outline: none;
+text-decoration: none;
+background-color: transparent;
+color: #4f4f4f;
+font-size: 15px;
+font-weight: 700;
+
+}
+nav button:hover{
+
+    background-color: #ffbc01;
+    color: #fff;
+    transition: all 0.3s;
+  
+    
+    }

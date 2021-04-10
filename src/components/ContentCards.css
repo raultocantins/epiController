@@ -1,0 +1,16 @@
+.contentCards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+   padding-top: 100px;
+ 
+    
+}
+.boxCards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 80%;
+}
