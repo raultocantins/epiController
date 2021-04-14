@@ -1,56 +1,80 @@
 import React, { useState } from "react";
 import CapaceteSvg from "../assets/dificil.svg";
 import "./Card.css";
+import axios from "axios";
+
 export default function Card(props) {
-  const [using, SetUsing] = useState(false);
-  const [time, SetTime] = useState(0);
-  const [timeAtual, SetTimeAtual] = useState(0);
-  const [DateOfDelivery, SetDateOfDelivery] = useState("");
   const [user, SetNameUser] = useState("");
+  function refreshPage() {
+    window.location.reload();
+  }
 
   function setNewDelivery() {
     if (user.length > 5) {
-      SetDateOfDelivery(new Date().toLocaleDateString());
-      SetTime(new Date());    
-      SetUsing(!using);
+      axios
+        .post(`http://localhost:3001/epi/${props.data._id}`, {
+          name: user,
+          using: true,
+        })
+        .then((res) => {
+          refreshPage();
+          alert("ok");
+         
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } else {
       alert("Por favor set o nome !!!");
+    
     }
   }
-  function reverserDelivery() {
-    SetUsing(!using);
+  function finish() {
+    axios
+      .post(`http://localhost:3001/epi/${props.data._id}`, {
+        using: false,
+      })
+      .then((res) => {
+        refreshPage();
+        alert("ok");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   return (
     <div
       className="card"
       style={
-        using
+        props.data.using
           ? { backgroundColor: "#ff010140" }
           : { backgroundColor: "#ffbb0134" }
       }
     >
-      {using ? (
+      {props.data.using ? (
         <div className="cardUsing">
           <div className="cardHeader">
             <div className="chart">
               <h1>0:00</h1>
             </div>
             <div className="describe">
-              <p>Capacete: {props.data.id}</p>
-              <p>Entregue para: {user}</p>
-              <p>Data da entrega: {DateOfDelivery}</p>
+              <p>Capacete: <strong>{ props.data.color}</strong></p>
+              <p>Entregue para: <strong>{props.data.entregue}</strong></p>
+              <p>Data da entrega: <strong>{props.data.data}</strong></p>
             </div>
           </div>
-          <button onClick={reverserDelivery}>Finalizar</button>
+          <button onClick={finish}><strong>Finalizar</strong></button>
         </div>
       ) : (
         <React.Fragment>
           <div className="cardImg">
             <img src={CapaceteSvg} alt="capacete" />
-            <p>
-              Capacete: {props.data.id} {props.data.color}
-            </p>
+            <div className="describeCard">
+              <p>
+              <strong>{props.data.name} {props.data.color}</strong>  
+              </p>
+            </div>
           </div>
 
           <div className="formCard">

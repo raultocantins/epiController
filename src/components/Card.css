@@ -1,6 +1,6 @@
 .card{
-    height: 230px;
-    width: 330px;
+    height: 200px;
+    width: 300px;
     margin: 30px;
     border-radius: 10px;
     
@@ -24,7 +24,7 @@
 
 .formCard{
     width: 100%;
-    height: 50%;
+    height: 70%;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -34,21 +34,26 @@
 }
 .formCard input{
     width: 70%;
-    height: 30%;
+    height: 20%;
     outline: none;
     text-decoration: none;
-    border: none;
+    border: 1px solid rgba(51, 51, 51, 0.308);
     text-align: center;
+    border-radius: 10px;
+
 }
 .formCard button{
     width: auto;
-    height: 30%;
+    height: 20%;
   border-radius: 10px;
   margin: 5px;
-  background-color: transparent;
+  background-color: #ffbc01;
+  color: #fff;
   outline: none;
   text-decoration: none;
   border-width: 1px;
+  border-color: white;
+
 }
 
 .cardUsing{
@@ -95,4 +100,14 @@
     text-align: left;
     width: 70%;
     overflow-x: hidden;
+}
+.describeCard{
+    display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+
+}
+.describeCard p {
+    margin:5px;
+    padding: 0px;
 }
