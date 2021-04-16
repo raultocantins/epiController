@@ -1,5 +1,7 @@
 const mongoose= require('mongoose')
-const urlConnect="mongodb+srv://admin:3571592486@cluster0.ebc1x.mongodb.net/epis?retryWrites=true"
+require('dotenv').config()
+
+const urlConnect=process.env.URL_CONNECTION
 mongoose.connect(urlConnect).then((res)=>{
     console.log("Conectado com sucesso!")
 })

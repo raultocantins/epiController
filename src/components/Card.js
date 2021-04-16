@@ -5,9 +5,7 @@ import axios from "axios";
 
 export default function Card(props) {
   const [user, SetNameUser] = useState("");
-  function refreshPage() {
-    window.location.reload();
-  }
+
 
   function setNewDelivery() {
     if (user.length > 5) {
@@ -17,16 +15,15 @@ export default function Card(props) {
           using: true,
         })
         .then((res) => {
-          refreshPage();
-          alert("ok");
-         
+          props.loadingData();
+         props.alert("Registrado com sucesso!  ",true)
         })
         .catch((err) => {
           console.log(err);
         });
     } else {
-      alert("Por favor set o nome !!!");
-    
+  
+      props.alert("Por favor insira o nome !!!",false)
     }
   }
   function finish() {
@@ -35,8 +32,9 @@ export default function Card(props) {
         using: false,
       })
       .then((res) => {
-        refreshPage();
-        alert("ok");
+        SetNameUser("");
+        props.loadingData();
+        props.alert("Entregue com sucesso! ",true)
       })
       .catch((err) => {
         console.log(err);
@@ -59,12 +57,20 @@ export default function Card(props) {
               <h1>0:00</h1>
             </div>
             <div className="describe">
-              <p>Capacete: <strong>{ props.data.color}</strong></p>
-              <p>Entregue para: <strong>{props.data.entregue}</strong></p>
-              <p>Data da entrega: <strong>{props.data.data}</strong></p>
+              <p>
+                Capacete: <strong>{props.data.color}</strong>
+              </p>
+              <p>
+                Entregue para: <strong>{props.data.entregue}</strong>
+              </p>
+              <p>
+                Data da entrega: <strong>{props.data.data}</strong>
+              </p>
             </div>
           </div>
-          <button onClick={finish}><strong>Finalizar</strong></button>
+          <button onClick={finish}>
+            <strong>Finalizar</strong>
+          </button>
         </div>
       ) : (
         <React.Fragment>
@@ -72,13 +78,16 @@ export default function Card(props) {
             <img src={CapaceteSvg} alt="capacete" />
             <div className="describeCard">
               <p>
-              <strong>{props.data.name} {props.data.color}</strong>  
+                <strong>
+                  {props.data.name} {props.data.color}
+                </strong>
               </p>
             </div>
           </div>
 
           <div className="formCard">
             <input
+            className="enterUserName"
               placeholder="Insert a Name"
               onChange={(e) => SetNameUser(e.target.value)}
             />
