@@ -43,6 +43,9 @@
     border-radius: 10px;
 
 }
+.formCard input:focus{
+    border:1px solid #ffbc01;
+}
 .formCard button{
     width: auto;
     height: 20%;

@@ -1,44 +1,24 @@
 import React, { useState } from "react";
 import CapaceteSvg from "../assets/dificil.svg";
 import "./Card.css";
-import axios from "axios";
-
+import { setUser, removeUser } from "../controller/databaseLocal";
 export default function Card(props) {
   const [user, SetNameUser] = useState("");
 
-
   function setNewDelivery() {
     if (user.length > 5) {
-      axios
-        .post(`http://localhost:3001/epi/${props.data._id}`, {
-          name: user,
-          using: true,
-        })
-        .then((res) => {
-          props.loadingData();
-         props.alert("Registrado com sucesso!  ",true)
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      setUser({ name: user, id: props.data.id });
+      props.alert("Registrado com sucesso!  ", true);
+      props.loadingData();
+     
     } else {
-  
-      props.alert("Por favor insira o nome !!!",false)
+      props.alert("Por favor insira o nome !!!", false);
     }
   }
   function finish() {
-    axios
-      .post(`http://localhost:3001/epi/${props.data._id}`, {
-        using: false,
-      })
-      .then((res) => {
-        SetNameUser("");
-        props.loadingData();
-        props.alert("Entregue com sucesso! ",true)
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    removeUser(props.data.id);
+    props.loadingData();
+    props.alert("Entregue com sucesso! ", true);
   }
 
   return (
@@ -61,7 +41,7 @@ export default function Card(props) {
                 Capacete: <strong>{props.data.color}</strong>
               </p>
               <p>
-                Entregue para: <strong>{props.data.entregue}</strong>
+                Entregue para: <strong>{props.data.name}</strong>
               </p>
               <p>
                 Data da entrega: <strong>{props.data.data}</strong>
@@ -77,17 +57,13 @@ export default function Card(props) {
           <div className="cardImg">
             <img src={CapaceteSvg} alt="capacete" />
             <div className="describeCard">
-              <p>
-                <strong>
-                  {props.data.name} {props.data.color}
-                </strong>
-              </p>
+              
             </div>
           </div>
 
           <div className="formCard">
             <input
-            className="enterUserName"
+              className="enterUserName"
               placeholder="Insert a Name"
               onChange={(e) => SetNameUser(e.target.value)}
             />
