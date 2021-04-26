@@ -3,10 +3,10 @@
     width: 300px;
     margin: 30px;
     border-radius: 10px;
-    
+    background-color:  #63625f1c;
 }
 .cardImg {
-    height: 50%;
+    height: 70%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -18,24 +18,25 @@
 }
 .cardImg img{
     margin-top: 10px;
-    height: 80%;
-    width: 100%;
+    height: 80px;
+    width: 80px;
     
 }
 
 .formCard{
     width: 100%;
-    height: 70%;
+    height: 30%;
    display: flex;
    justify-content: center;
    align-items: center;
    flex-wrap: wrap;
-
+   background-color: rgba(255, 255, 255, 0.438);
+   overflow: hidden;
 
 }
 .formCard input{
     width: 70%;
-    height: 20%;
+    height: 50%;
     outline: none;
     text-decoration: none;
     border: 1px solid rgba(51, 51, 51, 0.308);
@@ -48,7 +49,7 @@
 }
 .formCard button{
     width: auto;
-    height: 20%;
+    height: 50%;
   border-radius: 10px;
   margin: 5px;
   background-color: #ffbc01;

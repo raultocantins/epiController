@@ -36,6 +36,7 @@ export default class ContentCards extends Component {
     var myData = window.localStorage.getItem("mydata");
     if (myData === null || undefined) {
       setLocalstorage();    
+      window.location.reload();
     }
     var myDataJson = JSON.parse(myData);
     this.setState({

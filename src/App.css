@@ -3,44 +3,70 @@
 height: 100vh;
 margin: 0px;
 padding: 0px;
+display: grid;
+grid-template-columns: 10% 90%;
+grid-template-rows: 5% 95%;
+grid-template-areas: "title title"
+"header container";
+
+
+
 }
-header{
-width: 100%;
-    height: 60px;
+.title{
+    grid-area: title;
+    font-size: 13px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.171);
-    position: fixed;
-background-color: #fff;
+}
+header{
+height: 100%;
+
+background-color:  #63625f1c;
+grid-area: header;
+border-radius: 0px 10px 0px 0px;
 
 }
 header nav{
-    width: 80%;
+    width: 100%;
     height: 100%;
- 
     
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 nav button{
-height: 100%;
-width: 300px;
+height: 50px;
+width: 100%;
 border:none;
 outline: none;
 text-decoration: none;
-background-color: transparent;
-color: #4f4f4f;
-font-size: 15px;
+display: flex;
+justify-content: center;
+align-items: center;
+
+
+
+font-size: 13px;
 font-weight: 700;
+margin: 5px 0px;
 
 }
+
 nav button:hover{
 
-    background-color: #ffbc01;
-    color: #fff;
+  background-color:#ffbc01 ;
+  color: #fff;
     transition: all 0.3s;
+
   
     
     }
+.container{
+    grid-area: container;
+    overflow: auto;
+   
+    
+    
+}

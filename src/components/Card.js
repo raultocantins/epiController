@@ -24,11 +24,7 @@ export default function Card(props) {
   return (
     <div
       className="card"
-      style={
-        props.data.using
-          ? { backgroundColor: "#ff010140" }
-          : { backgroundColor: "#ffbb0134" }
-      }
+      
     >
       {props.data.using ? (
         <div className="cardUsing">
